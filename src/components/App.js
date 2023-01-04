@@ -1,6 +1,6 @@
 import { useState } from "react";
-import WebRouter from "./WebRouter";
-import { authService } from "../firebaseApp";
+import WebRouter from "components/WebRouter";
+import { authService } from "firebaseApp";
 
 function App() {
     console.log(authService.currentUser);

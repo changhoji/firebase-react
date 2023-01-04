@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "../pages/Home";
-import Auth from "../pages/Auth";
+import Home from "pages/Home";
+import Auth from "pages/Auth";
 
 function WebRouter({ isLoggedIn }) {
     return (
