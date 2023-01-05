@@ -3,6 +3,8 @@ import { authService } from "firebaseApp";
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
+    signInWithPopup,
+    GoogleAuthProvider,
 } from "firebase/auth";
 
 function Auth() {
@@ -48,6 +50,17 @@ function Auth() {
         setNewAccount((prev) => !prev);
     }
 
+    async function onSocialClick(e) {
+        const {
+            target: { name },
+        } = e;
+        let provider;
+        if (name === "google") {
+            provider = new GoogleAuthProvider();
+        }
+        console.log(await signInWithPopup(authService, provider));
+    }
+
     return (
         <div>
             <form onSubmit={onSubmit}>
@@ -77,7 +90,9 @@ function Auth() {
                 {newAccount ? "Login" : "Create Account"}
             </span>
             <div>
-                <button>Continue with Google</button>
+                <button name="google" onClick={onSocialClick}>
+                    Continue with Google
+                </button>
             </div>
         </div>
     );
