@@ -4,7 +4,7 @@ import Auth from "pages/Auth";
 import Profile from "pages/Profile";
 import Navigation from "components/Navigation";
 
-function WebRouter({ isLoggedIn }) {
+function WebRouter({ isLoggedIn, userObj }) {
     return (
         <Router>
             {isLoggedIn && <Navigation />}
@@ -12,7 +12,7 @@ function WebRouter({ isLoggedIn }) {
                 {isLoggedIn ? (
                     <>
                         <Route path="/profile" element={<Profile />} />
-                        <Route path="/" element={<Home />} />
+                        <Route path="/" element={<Home userObj={userObj} />} />
                     </>
                 ) : (
                     <Route path="/" element={<Auth />} />
